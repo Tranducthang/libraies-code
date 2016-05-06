@@ -1,0 +1,11 @@
+<%#= form_for :article, url: "/articles", method: :post do |f| %>
+<%= form_for :article, url: article_path(@article), method: :patch do |f| %>
+<!--trong routes có 1 as: :show_article-->
+<!--vs cả có 1 cái patch "articles/:id"-->
+<!--nên trong form vs method: :patch, url là show_article_path thì khi submit nó sẽ chạy vào hàm update trong controller-->
+    <%= f.label :Title %>
+    <%= f.text_field :title, class: "form-control" %>
+    <%= f.label :content %> 
+    <%= f.text_area :content, class: "form-control", rows: 2 %>
+    <%= f.submit "Submit", class: "btn btn-primary btn-block" %>
+<% end %>
